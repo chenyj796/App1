@@ -17,8 +17,15 @@ namespace WebApp
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            var builder = WebHost.CreateDefaultBuilder(args);
+            builder.UseKestrel(opt =>
+            {
+                opt.ListenLocalhost(6000);
+            });
+            builder.UseStartup<Startup>();
+            return builder;
+        }
     }
 }

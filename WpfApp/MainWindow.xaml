@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button Content="提交" Width="50" Click="Button_Click"/>
+        </StackPanel>
+        <TextBox Grid.Row="1" AcceptsReturn="True" Text="{Binding HttpMessage}" VerticalScrollBarVisibility="Visible" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </Window>
